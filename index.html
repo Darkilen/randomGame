@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html ng-app="RandomApp">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Darkilen">
+  <meta name="description" content="Jeu du random, angularJS, boostrap">
+  <title>Le jeu du random</title>
+  <link rel="favicon" href="favicon.ico">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="container" ng-controller="RandomController" ng-cloak ng-init="init();">
+    <h1>{{title}}</h1>
+    <br>
+    <form id="init" ng-submit="newInit(minNumber, maxNumber);" class="form-horizontal">
+      <div class="form-group">
+        <label class="col-sm-5 control-label" for="minNumber">Entrez le nombre minimum à trouver :</label>
+        <div class="col-sm-4">
+          <input class="form-control" type="number" min="0" max="999" ng-model="minNumber" value="0" placeholder="0" name="minNumber">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-5 control-label" for="maxNumber">Entrez le nombre maximum à trouver :</label>
+        <div class="col-sm-4">
+          <input class="form-control" type="number" min="1" max="1000" ng-model="maxNumber" value="1000" placeholder="1000" name="maxNumber">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-5 control-label" for="limit">Entrez la limite du nombre d'essai :</label>
+        <div class="col-sm-4">
+          <input class="form-control" type="number" max="20" min="1" ng-model="limit" value="7" placeholder="7" name="limit">
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-5 col-sm-10">
+          <button class="btn btn-default" type="submit">Valider</button>
+        </div>
+      </div>
+    </form>
+    <form id="selectNumber" class="disabled" ng-submit="testNumber(newNumber);">
+      <div class="form-group">
+        <label class="col-sm-5 control-label" for="limit">Entrez un nombre :</label>
+        <div class="col-sm-4">
+          <input type="number" ng-model="newNumber">
+        </div>
+      </div>
+    </form>
+    <ul ng-init="init();">
+      <li class="animated" ng-click="removeItem($index);" ng-repeat="item in list track by $index">{{item}}</li>
+    </ul>
+    <div class="col-sm-offset-5 col-sm-10">
+      <button id="reset" class="disabled" type="button" ng-click="reset();" name="button">Recommence</button>
+    </div>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="app.js" charset="utf-8"></script>
+</body>
+
+</html>
