@@ -16,6 +16,7 @@
 <body>
   <div class="container" ng-controller="RandomController" ng-cloak ng-init="init();">
     <h1>{{title}}</h1>
+    <span class="help-block">{{rules}}</span>
     <br>
     <form id="init" ng-submit="newInit(minNumber, maxNumber);" class="form-horizontal">
       <div class="form-group">
@@ -37,24 +38,26 @@
         </div>
       </div>
       <div class="form-group">
-        <div class="col-sm-offset-5 col-sm-10">
+        <div class="col-sm-offset-5 col-sm-7">
           <button class="btn btn-default" type="submit">Valider</button>
         </div>
       </div>
     </form>
-    <form id="selectNumber" class="disabled" ng-submit="testNumber(newNumber);">
+    <span class="col-sm-offset-3 help-block">{{error}}</span>
+    <h3 class="disabled col-sm-offset-1 col-sm-10">Nombre d'essai restant: {{essai}}</h3>
+    <form id="selectNumber" class="disabled form-horizontal" ng-submit="testNumber(newNumber);">
       <div class="form-group">
         <label class="col-sm-5 control-label" for="limit">Entrez un nombre :</label>
         <div class="col-sm-4">
-          <input type="number" ng-model="newNumber">
+          <input id="newNumberInput" class="form-control" type="number" ng-model="newNumber">
         </div>
       </div>
     </form>
-    <ul ng-init="init();">
-      <li class="animated" ng-click="removeItem($index);" ng-repeat="item in list track by $index">{{item}}</li>
+    <ul id="list" class="disabled col-sm-offset-2 col-sm-10">
+      <li ng-repeat="item in list track by $index">{{item}}</li>
     </ul>
-    <div class="col-sm-offset-5 col-sm-10">
-      <button id="reset" class="disabled" type="button" ng-click="reset();" name="button">Recommence</button>
+    <div class="col-sm-offset-5 col-sm-7">
+      <button id="reset" class="disabled btn btn-default" type="button" ng-click="reset();" name="button">Recommence</button>
     </div>
   </div>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.js"></script>
@@ -62,5 +65,4 @@
   <script src="js/bootstrap.min.js"></script>
   <script src="app.js" charset="utf-8"></script>
 </body>
-
 </html>
