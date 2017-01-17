@@ -38,9 +38,6 @@ app.controller("RandomController", function($scope) {
       $scope.error = "";
     }else{
       $scope.error = "Le minimum doit être inférieur au maximum !";
-      /*$scope.maxNumber = null;
-      $scope.minNumber = null;
-      $scope.limt = null;*/
     }
   }
 
