@@ -7,17 +7,21 @@ app.controller("RandomController", function($scope) {
   $scope.actualLimit = 1;
   $scope.list = [];
   $scope.newInit = function(minNumber, maxNumber) {
-    if((typeof $scope.minNumber) === 'undefined')
+    console.log($scope.minNumber, $scope.maxNumber, $scope.limit);
+    if(((typeof $scope.minNumber) === 'undefined') || ($scope.minNumber === null))
     {
       $scope.minNumber = 0;
+      console.log("ok1");
     }
-    if((typeof $scope.maxNumber) === 'undefined')
+    if(((typeof $scope.maxNumber) === 'undefined') || ($scope.maxNumber === null))
     {
       $scope.maxNumber = 1000;
+      console.log("ok2");
     }
-    if((typeof $scope.limit) === 'undefined')
+    if(((typeof $scope.limit) === 'undefined') || ($scope.limit === null))
     {
       $scope.limit = 7;
+      console.log("ok3");
     }
     if($scope.maxNumber>$scope.minNumber){
       $scope.rules = "Le but du jeu est de trouver un nombre aléatoire compris entre "+$scope.minNumber+" et "+$scope.maxNumber+" en "+$scope.limit+" essais";
@@ -34,9 +38,12 @@ app.controller("RandomController", function($scope) {
       $scope.error = "";
     }else{
       $scope.error = "Le minimum doit être inférieur au maximum !";
+      /*$scope.maxNumber = null;
+      $scope.minNumber = null;
+      $scope.limt = null;*/
     }
   }
-  
+
   $scope.testNumber = function(number) {
     if((typeof $scope.goodNumber) === 'number')
     {
