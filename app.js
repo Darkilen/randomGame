@@ -7,7 +7,6 @@ app.controller("RandomController", function($scope) {
   $scope.actualLimit = 1;
   $scope.list = [];
   $scope.newInit = function(minNumber, maxNumber) {
-    console.log($scope.minNumber, $scope.maxNumber, $scope.limit);
     if(((typeof $scope.minNumber) === 'undefined') || ($scope.minNumber === null))
     {
       $scope.minNumber = 0;
